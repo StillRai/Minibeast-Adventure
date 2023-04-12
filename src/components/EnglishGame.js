@@ -46,10 +46,7 @@ function EnglishGame({ onStart }) {
   const [audio, setAudio] = useState(null);
   const [options, setOptions] = useState([]);
   const [firstRender, setFirstRender] = useState(true);
-  const navigate = useNavigate();
-  const goBack = () => {
-    navigate('/'); 
-  };
+
 
   const playAudio = (src) => {
     if (audio) audio.pause();
@@ -63,6 +60,12 @@ function EnglishGame({ onStart }) {
       audio.pause();
       setAudio(null);
     }
+  };
+
+  const navigate = useNavigate();
+  const goBack = () => {
+    stopAudio()
+    navigate('/'); 
   };
 
   useEffect(() => {
