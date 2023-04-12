@@ -10,7 +10,6 @@ body {
   justify-content: center;
 }
 
-
 .BodyText {
   font-size: 1.3rem;
   margin-bottom: 40px ;
@@ -116,7 +115,6 @@ body {
   height: 54px;
   max-width: 400px;
   font-family: 'Poppins', sans-serif;
-
 }
 
 .Check:hover {
