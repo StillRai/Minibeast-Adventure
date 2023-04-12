@@ -32,7 +32,6 @@ import q18 from '../sounds/q18.mp3';
 import q19 from '../sounds/q19.mp3';
 import q20 from '../sounds/q20.mp3';
 
-
 function EnglishGame({ onStart }) {
   const [question, setQuestion] = useState('');
   const [correctAnswer, setCorrectAnswer] = useState('');
