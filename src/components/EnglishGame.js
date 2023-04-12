@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import correctSound from '../sounds/correct.mp3';
 import incorrectSound from '../sounds/incorrect.mp3';
 import './EnglishGame.css';
@@ -60,7 +60,8 @@ function EnglishGame({ onStart }) {
   useEffect(() => {
     if (!firstRender) generateRandomQuestion();
     else setFirstRender(false);
-  }, [firstRender]);
+  }, [firstRender, generateRandomQuestion]);
+  
 
   const questions = [
     { text: 'Which one transforms after being a caterpillar?', answer: 'Butterfly', audio: q1 },
@@ -97,14 +98,15 @@ function EnglishGame({ onStart }) {
     { name: 'Ant', image: antImg },
   ];
 
-  const generateRandomQuestion = () => {
+  const generateRandomQuestion = useCallback(() => {
     const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
     setCorrectAnswer(randomQuestion.answer);
     setQuestion(randomQuestion.text);
     setResult('');
     generateOptions(randomQuestion.answer);
     playAudio(randomQuestion.audio);
-  };
+  }, [questions, playAudio]);
+  
 
   const generateOptions = (correctAnswer) => {
     const wrongAnswers = insects.filter(i => i.name !== correctAnswer).map(i => i.name);
