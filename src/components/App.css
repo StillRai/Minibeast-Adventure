@@ -19,6 +19,14 @@ body {
   overflow-y: auto;
 }
 
+.back-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+}
+
+
 @media (max-width: 768px) {
   .modal-content {
     max-height: 80vh;

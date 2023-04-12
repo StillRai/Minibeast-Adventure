@@ -12,6 +12,9 @@ import ladybirdImg from '../images/ladybird.png';
 import wormImg from '../images/worm.png';
 import correctSound from '../sounds/correct.mp3';
 import incorrectSound from '../sounds/incorrect.mp3';
+import { useNavigate } from 'react-router-dom';
+import IconButton from '@mui/material/IconButton';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const minibeasts = [
     { id: 1, name: 'Ant', image: antImg, value: 1 },
@@ -36,6 +39,10 @@ function MathGame({ onStart }) {
     const [correctCount, setCorrectCount] = useState(0);
     const [incorrectCount, setIncorrectCount] = useState(0);
     const [audio, setAudio] = useState(null);
+    const navigate = useNavigate();
+    const goBack = () => {
+      navigate('/'); 
+    };
 
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
@@ -112,6 +119,9 @@ function MathGame({ onStart }) {
 
     return (
         <div className="MathGame">
+          <IconButton onClick={goBack} style={{ position: 'absolute', top: 10, left: 10 }}>
+        <ArrowBackIcon />
+      </IconButton>
             <div className="score">
                 <div>Correct: {correctCount}&emsp;  |  &emsp;Incorrect: {incorrectCount}</div>
             </div>
@@ -137,7 +147,6 @@ function MathGame({ onStart }) {
                     <button
                         className="Check"
                         onClick={checkAnswer}
-                        onMouseEnter={() => playAudio(process.env.PUBLIC_URL + '/sounds/check.mp3')}
                         onMouseLeave={stopAudio}
                     >
                         Check

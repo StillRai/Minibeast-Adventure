@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './StartScreen.css';
-import MathGame from './MathGame';
-import EnglishGame from './EnglishGame';
-import PhonicsGame from './PhonicsGame';
 import { IconButton, Modal, Box } from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info';
 import CloseIcon from '@mui/icons-material/Close';
 import asaruMessageVideo from '../videos/Asaru_message.mp4';
 
-function StartScreen({ onStartMath, onStartEnglish, onStartPhonics }) {
+function StartScreen() {
   const [audioContext, setAudioContext] = useState(null);
   const [audioBuffer, setAudioBuffer] = useState(null);
   const [audioSource, setAudioSource] = useState(null);
   const [openModal, setOpenModal] = useState(false);
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -106,59 +104,24 @@ function StartScreen({ onStartMath, onStartEnglish, onStartPhonics }) {
     <div className="StartScreen">
       <h1>Minibeast Games</h1>
       <IconButton
-      onClick={() => setOpenModal(true)}
-      color="primary"
-      aria-label="open game info modal"
-    >
-      <InfoIcon />
-    </IconButton>
-      <button
-        onClick={onStartMath}
+        onClick={() => setOpenModal(true)}
+        color="primary"
+        aria-label="open game info modal"
       >
-        Start Math Game
-      </button>
-      <button
-        onClick={onStartEnglish}
-      >
-        Start Minibeast Quiz
-      </button>
-      <button
-        onClick={onStartPhonics}
-      >
-        Start Minibeast Phonics
-      </button>
+        <InfoIcon />
+      </IconButton>
+      <button onClick={() => navigate('/math-game')}>Start Math Game</button>
+      <button onClick={() => navigate('/quiz-game')}>Start Minibeast Quiz</button>
+      <button onClick={() => navigate('/phonics-game')}>Start Minibeast Phonics</button>
       {renderModal()}
     </div>
   );
 }
 
 function MinibeastApp() {
-  const [game, setGame] = useState('');
-
-  const startMathGame = () => {
-    setGame('math');
-  };
-
-  const startEnglishGame = () => {
-    setGame('english');
-  };
-
-  const startPhonicsGame = () => {
-    setGame('phonics');
-  };
-
   return (
-    <div className="App" >
-      {game === '' && (
-        <StartScreen
-          onStartMath={startMathGame}
-          onStartEnglish={startEnglishGame}
-          onStartPhonics={startPhonicsGame}
-        />
-      )}
-      {game === 'math' && <MathGame />}
-      {game === 'english' && <EnglishGame />}
-      {game === 'phonics' && <PhonicsGame />}
+    <div className="App">
+      <StartScreen />
     </div>
   );
 }

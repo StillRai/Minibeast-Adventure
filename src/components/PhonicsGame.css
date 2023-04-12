@@ -26,6 +26,13 @@ body {
 .PhonicsGame .Check {
   margin-left: 10px;
 }
+.back-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+}
+
 
 .PhonicsGame {
   background-image: url("../images/bg_8.jpg");

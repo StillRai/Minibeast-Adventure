@@ -12,6 +12,10 @@ import flyImg from '../images/fly.png';
 import ladybirdImg from '../images/ladybird.png';
 import wormImg from '../images/worm.png';
 import throttle from 'lodash.throttle';
+import { useNavigate } from 'react-router-dom';
+import IconButton from '@mui/material/IconButton';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 
 function PhonicsGame() {
   const [question, setQuestion] = useState('');
@@ -22,6 +26,11 @@ function PhonicsGame() {
   const [isCheckDisabled, setIsCheckDisabled] = useState(true);
   const [audio, setAudio] = useState(null);
   const [showResult, setShowResult] = useState(false);
+  const navigate = useNavigate();
+  const goBack = () => {
+    navigate('/'); 
+  };
+  
 
   const playAudio = (src) => {
     if (audio) {
@@ -176,10 +185,14 @@ function PhonicsGame() {
   const nextQuestion = () => {
     generateRandomQuestion();
   };
+  
 
   return (
     <>
       <div className="PhonicsGame">
+      <IconButton onClick={goBack} style={{ position: 'absolute', top: 10, left: 10 }}>
+        <ArrowBackIcon />
+      </IconButton>
         <h1 className="Title">Minibeast Phonics</h1>
         <div>
           <div className="BodyText">{question}</div>
@@ -200,7 +213,6 @@ function PhonicsGame() {
             <button
               className="Check"
               onClick={checkAnswer}
-              onMouseEnter={() => playAudio(process.env.PUBLIC_URL + '/sounds/check.mp3')}
               onMouseLeave={stopAudio}
             >
               Check

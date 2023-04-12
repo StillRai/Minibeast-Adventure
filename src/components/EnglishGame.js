@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import correctSound from '../sounds/correct.mp3';
 import incorrectSound from '../sounds/incorrect.mp3';
 import './EnglishGame.css';
@@ -31,6 +31,11 @@ import q17 from '../sounds/q17.mp3';
 import q18 from '../sounds/q18.mp3';
 import q19 from '../sounds/q19.mp3';
 import q20 from '../sounds/q20.mp3';
+import { useNavigate } from 'react-router-dom';
+import IconButton from '@mui/material/IconButton';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
+
 
 function EnglishGame({ onStart }) {
   const [question, setQuestion] = useState('');
@@ -41,6 +46,10 @@ function EnglishGame({ onStart }) {
   const [audio, setAudio] = useState(null);
   const [options, setOptions] = useState([]);
   const [firstRender, setFirstRender] = useState(true);
+  const navigate = useNavigate();
+  const goBack = () => {
+    navigate('/'); 
+  };
 
   const playAudio = (src) => {
     if (audio) audio.pause();
@@ -59,8 +68,7 @@ function EnglishGame({ onStart }) {
   useEffect(() => {
     if (!firstRender) generateRandomQuestion();
     else setFirstRender(false);
-  }, [firstRender, generateRandomQuestion]);
-  
+  }, [firstRender]);
 
   const questions = [
     { text: 'Which one transforms after being a caterpillar?', answer: 'Butterfly', audio: q1 },
@@ -97,15 +105,14 @@ function EnglishGame({ onStart }) {
     { name: 'Ant', image: antImg },
   ];
 
-  const generateRandomQuestion = useCallback(() => {
+  const generateRandomQuestion = () => {
     const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
     setCorrectAnswer(randomQuestion.answer);
     setQuestion(randomQuestion.text);
     setResult('');
     generateOptions(randomQuestion.answer);
     playAudio(randomQuestion.audio);
-  }, [questions, playAudio]);
-  
+  };
 
   const generateOptions = (correctAnswer) => {
     const wrongAnswers = insects.filter(i => i.name !== correctAnswer).map(i => i.name);
@@ -138,8 +145,13 @@ function EnglishGame({ onStart }) {
     setTimeout(() => generateRandomQuestion(), 4000);
   };
 
+  
+
   return (
     <div className="EnglishGame">
+      <IconButton onClick={goBack} style={{ position: 'absolute', top: 10, left: 10 }}>
+        <ArrowBackIcon />
+      </IconButton> 
       <div className="score">Correct: {correctCount}&emsp;  |  &emsp;Incorrect: {incorrectCount}</div>
       <h1>Minibeast Quiz</h1>
       <div className="question">
