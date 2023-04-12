@@ -15,7 +15,6 @@ function StartScreen({ onStartMath, onStartEnglish, onStartPhonics }) {
   const [audioSource, setAudioSource] = useState(null);
   const [openModal, setOpenModal] = useState(false);
 
-
   useEffect(() => {
     const context = new (window.AudioContext || window.webkitAudioContext)();
     setAudioContext(context);
