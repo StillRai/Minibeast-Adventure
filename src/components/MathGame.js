@@ -166,7 +166,6 @@ function MathGame({ onStart }) {
                         </button>
                     ))}
                 </div>
-
                 <button
                     className="NextQuestion"
                     onMouseEnter={() => playAudio(process.env.PUBLIC_URL + '/sounds/new_question.mp3')}

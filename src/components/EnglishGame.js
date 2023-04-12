@@ -35,8 +35,6 @@ import { useNavigate } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-
-
 function EnglishGame({ onStart }) {
   const [question, setQuestion] = useState('');
   const [correctAnswer, setCorrectAnswer] = useState('');
@@ -147,8 +145,6 @@ function EnglishGame({ onStart }) {
     }
     setTimeout(() => generateRandomQuestion(), 4000);
   };
-
-  
 
   return (
     <div className="EnglishGame">

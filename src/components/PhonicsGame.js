@@ -31,7 +31,6 @@ function PhonicsGame() {
     navigate('/'); 
   };
   
-
   const playAudio = (src) => {
     if (audio) {
       audio.pause();
@@ -185,7 +184,6 @@ function PhonicsGame() {
   const nextQuestion = () => {
     generateRandomQuestion();
   };
-  
 
   return (
     <>
