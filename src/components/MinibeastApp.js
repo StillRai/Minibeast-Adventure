@@ -101,7 +101,7 @@ function StartScreen() {
 
   return ( 
     <div className="StartScreen">
-      <h1>Minibeast Adventuure</h1>
+      <h1>Minibeast Adventure</h1>
       <IconButton
         onClick={() => setOpenModal(true)}
         color="primary"
