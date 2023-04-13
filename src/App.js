@@ -17,7 +17,7 @@ function App() {
           <Route path="/phonics-game" element={<PhonicsGame />} />
         </Routes>
       </Router>
-    </div>
+    </div> 
   );
 }
 
