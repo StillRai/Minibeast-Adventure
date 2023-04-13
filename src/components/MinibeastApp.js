@@ -99,7 +99,6 @@ function StartScreen() {
     );
   };
 
-  // ...
   return ( 
     <div className="StartScreen">
       <h1>Minibeast Adventuure</h1>
