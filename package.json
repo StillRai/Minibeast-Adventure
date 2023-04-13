@@ -2,7 +2,7 @@
   "name": "minibeast-adventure",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://stillrai.github.io/Minibeast-Adventure/?version=f36af92",
+  "homepage": "https://stillrai.github.io/Minibeast-Adventure/",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
