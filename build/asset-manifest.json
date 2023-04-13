@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Minibeast-Adventure/static/css/main.c60f5097.css",
-    "main.js": "/Minibeast-Adventure/static/js/main.434957d1.js",
+    "main.css": "/Minibeast-Adventure/static/css/main.8afe211f.css",
+    "main.js": "/Minibeast-Adventure/static/js/main.dd3f6324.js",
     "static/js/725.4d9ab377.chunk.js": "/Minibeast-Adventure/static/js/725.4d9ab377.chunk.js",
     "static/js/111.a9eed261.chunk.js": "/Minibeast-Adventure/static/js/111.a9eed261.chunk.js",
     "static/js/311.3bf8110d.chunk.js": "/Minibeast-Adventure/static/js/311.3bf8110d.chunk.js",
@@ -97,12 +97,12 @@
     "static/media/check.mp3": "/Minibeast-Adventure/static/media/check.c3941b134609489de6af.mp3",
     "static/media/W.mp3": "/Minibeast-Adventure/static/media/W.05a7cc702939998cbfb4.mp3",
     "index.html": "/Minibeast-Adventure/index.html",
-    "main.c60f5097.css.map": "/Minibeast-Adventure/static/css/main.c60f5097.css.map",
-    "main.434957d1.js.map": "/Minibeast-Adventure/static/js/main.434957d1.js.map",
+    "main.8afe211f.css.map": "/Minibeast-Adventure/static/css/main.8afe211f.css.map",
+    "main.dd3f6324.js.map": "/Minibeast-Adventure/static/js/main.dd3f6324.js.map",
     "787.59441d66.chunk.js.map": "/Minibeast-Adventure/static/js/787.59441d66.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c60f5097.css",
-    "static/js/main.434957d1.js"
+    "static/css/main.8afe211f.css",
+    "static/js/main.dd3f6324.js"
   ]
 }
