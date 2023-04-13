@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkminibeast_mergers=self.webpackChunkminibeast_mergers||[]).push([[525],{5525:function(e,s,i){e.exports=i.p+"static/media/J.5c4df41568247ea3c127.mp3"}}]);
